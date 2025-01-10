@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProtocoloTeste.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-white">Clientes</h1>
+
+<p>
+    <a asp-action="Create" class="link-danger">Novo Cliente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr class="text-white">
+            <th class="text-white">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th class ="text-white">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th class="text-white">
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th class="text-white">
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr class="text-white">
+                <td class="text-white">
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+                <td class="text-white">
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+                <td class="text-white">
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+                <td class="text-white">
+                @Html.DisplayFor(modelItem => item.Endereco)
+            </td>
+            <td class="link-danger">
+                    <a asp-action="Edit" class="link-danger" asp-route-id="@item.IdCliente">Editar</a> |
+                    <a asp-action="Details" class="link-danger" asp-route-id="@item.IdCliente">Detalhes</a> |
+                    <a asp-action="Delete" class="link-danger" asp-route-id="@item.IdCliente">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

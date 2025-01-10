@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ProtocoloTeste.Models.Protocolo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-white">Protocolos</h1>
+
+<p>
+    <a asp-action="Create" class="link-danger" >Novo Protocolo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr class ="text-white">
+            <th class="text-white">
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th class="text-white">
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th class="text-white">
+                @Html.DisplayNameFor(model => model.DataAbertura)
+            </th>
+            <th class="text-white">
+                @Html.DisplayNameFor(model => model.DataFechamento)
+            </th>
+            <th class="text-white">
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th class="text-white">
+                @Html.DisplayNameFor(model => model.ProtocoloStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr class ="text-white">
+                <td class="text-white">
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td >
+                <td class="text-white">
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+                <td class="text-white">
+                @Html.DisplayFor(modelItem => item.DataAbertura)
+            </td>
+                <td class="text-white">
+                @Html.DisplayFor(modelItem => item.DataFechamento)
+            </td>
+                <td class="text-white">
+                @Html.DisplayFor(modelItem => item.Cliente.Email)
+            </td>
+                <td class="text-white">
+                @Html.DisplayFor(modelItem => item.ProtocoloStatus.NomeStatus)
+            </td>
+                <td class="link-danger">
+                    <a asp-action="Edit" class="link-danger" asp-route-id="@item.IdProtocolo">Editar</a> |
+                    <a asp-action="Details" class="link-danger" asp-route-id="@item.IdProtocolo">Detalhes</a> |
+                    <a asp-action="Delete" class="link-danger" asp-route-id="@item.IdProtocolo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

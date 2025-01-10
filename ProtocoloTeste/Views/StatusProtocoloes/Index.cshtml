@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ProtocoloTeste.Models.StatusProtocolo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-white">Status Do Protocoloco</h1>
+
+<p>
+    <a asp-action="Create" class="link-danger">Criar Status</a>
+</p>
+<table class="table">
+    <thead>
+        <tr class="text-white">
+            <th class="text-white">
+                @Html.DisplayNameFor(model => model.NomeStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr class="text-white">
+                <td class="text-white">
+                @Html.DisplayFor(modelItem => item.NomeStatus)
+            </td>
+                <td class="link-danger">
+                    <a asp-action="Edit" class="link-danger" asp-route-id="@item.IdStatus">Edit</a> |
+                    <a asp-action="Details" class="link-danger" asp-route-id="@item.IdStatus">Details</a> |
+                    <a asp-action="Delete" class="link-danger" asp-route-id="@item.IdStatus">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

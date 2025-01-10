@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ProtocoloTeste.Models.ProtocoloFollow>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-white">Companhamento de Protocolo</h1>
+
+<p>
+    <a asp-action="Create" class="link-danger">Criar Companhamento</a>
+</p>
+<table class="table">
+    <thead>
+        <tr class="text-white">
+            <th class="text-white">
+                @Html.DisplayNameFor(model => model.Protocolo)
+            </th>
+            <th class="text-white">
+                @Html.DisplayNameFor(model => model.DataAcao)
+            </th>
+            <th class="text-white">
+                @Html.DisplayNameFor(model => model.DescricaoAcao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td class="text-white">
+                @Html.DisplayFor(modelItem => item.Protocolo.Titulo)
+            </td >
+                <td class="text-white">
+                @Html.DisplayFor(modelItem => item.DataAcao)
+            </td>
+                <td class="text-white">
+                @Html.DisplayFor(modelItem => item.DescricaoAcao)
+            </td>
+                <td class="link-danger">
+                    <a asp-action="Edit" class="link-danger" asp-route-id="@item.IdFollow">Edit</a> |
+                    <a asp-action="Details" class="link-danger" asp-route-id="@item.IdFollow">Details</a> |
+                    <a asp-action="Delete" class="link-danger" asp-route-id="@item.IdFollow">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

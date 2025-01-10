@@ -1,0 +1,45 @@
+﻿@model ProtocoloTeste.Models.Cliente
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class ="text-white">Deletar</h1>
+
+<h3 class="text-white">Você tem Certeza que deseja DELETAR esse Cliente</h3>
+<div>
+    <h4 class="text-white">Cliente</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2 text-white">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10 text-white">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class="col-sm-2 text-white">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10 text-white">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2 text-white">
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd class="col-sm-10 text-white">
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+        <dt class="col-sm-2 text-white">
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+        <dd class="col-sm-10 text-white">
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdCliente" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
